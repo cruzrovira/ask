@@ -1,15 +1,18 @@
 import { Button, Heading, Input, Stack, useToast } from "@chakra-ui/react"
-import React from "react"
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useQuestion } from "../hooks/useQuestion"
 type props = {}
 const QuestionsForm: React.FC<props> = ({}) => {
-  const { question, setQuestion, addQuestion } = useQuestion()
+  const navigate = useNavigate()
+  const [question, setQuestion] = useState<string>("")
+  const { addQuestion } = useQuestion()
   const toast = useToast()
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (question.question === "") {
-      setQuestion(pre => ({ ...pre, question: "" }))
+    if (question === "") {
+      setQuestion("")
       return toast({
         title: "add question",
         description: "Your question can't be empty",
@@ -18,8 +21,8 @@ const QuestionsForm: React.FC<props> = ({}) => {
         isClosable: true,
       })
     }
-    if (question.question.length < 8) {
-      setQuestion(pre => ({ ...pre, question: "" }))
+    if (question.length < 8) {
+      setQuestion("")
       return toast({
         title: "add question",
         description: "Your question can't be less than 8 characters",
@@ -28,8 +31,8 @@ const QuestionsForm: React.FC<props> = ({}) => {
         isClosable: true,
       })
     }
-    if (question.question.length > 150) {
-      setQuestion(pre => ({ ...pre, question: "" }))
+    if (question.length > 150) {
+      setQuestion("")
       return toast({
         title: "add question",
         description: "Your question can't be more than 150 characters",
@@ -39,16 +42,10 @@ const QuestionsForm: React.FC<props> = ({}) => {
       })
     }
 
-    addQuestion({ question: question.question }).then(data => {
+    addQuestion({ question: question }).then(data => {
       if (data.status === 201) {
-        setQuestion(pre => ({ ...pre, question: "" }))
-        toast({
-          title: "add question",
-          description: "Your question has been added",
-          status: "success",
-          duration: 1000,
-          isClosable: true,
-        })
+        setQuestion("")
+        navigate(`/question/${data.data.id}`)
       }
     })
   }
@@ -72,12 +69,10 @@ const QuestionsForm: React.FC<props> = ({}) => {
             name="question"
             borderTopLeftRadius={0}
             borderTopRightRadius={0}
-            value={question.question}
+            value={question}
             maxLength={150}
             placeholder="¿What is your question?"
-            onChange={e =>
-              setQuestion(pre => ({ ...pre, question: e.target.value }))
-            }
+            onChange={e => setQuestion(e.target.value)}
           />
         </Stack>
 

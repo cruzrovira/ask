@@ -23,10 +23,10 @@ export const getAskById = async ({
   return data as questionType
 }
 
-export const setAsk = async ({
-  question,
-}: {
-  question: string
-}): Promise<{ status: number; statusText: string }> => {
-  return await supabase.from("ask").insert({ question: question })
+export const setAsk = async ({ question }: { question: string }) => {
+  return await supabase
+    .from("ask")
+    .insert({ question: question })
+    .select()
+    .single()
 }

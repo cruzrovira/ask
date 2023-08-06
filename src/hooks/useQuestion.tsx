@@ -1,9 +1,11 @@
 import { useContext } from "react"
 import { questionContext } from "../context/questionContext"
 import { getAsk, getAskById, setAsk } from "../service/supabase"
+import { questionType } from "../types/questionType"
 
 export const useQuestion = () => {
   const context = useContext(questionContext)
+
   if (context === undefined) {
     throw new Error("useQuestion must be used within a QuestionContextProvider")
   }
@@ -23,8 +25,7 @@ export const useQuestion = () => {
   }
   const addQuestion = ({ question }: { question: string }) => {
     return setAsk({ question: question.toString() }).then(data => {
-      getQuestions()
-      return data
+      return { ...data, data: data.data as questionType }
     })
   }
 
