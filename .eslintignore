@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+.cache/
+.vscode/
+.idea/
+.gitignore
+.eslintrc
+tsconfig.json
+vite.config.js
