@@ -1,6 +1,7 @@
 import { Button, Heading, Input, Stack, useToast } from "@chakra-ui/react"
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { APP_CONST } from "../const/configurationsCont"
 import { useQuestion } from "../hooks/useQuestion"
 type props = {}
 const QuestionsForm: React.FC<props> = ({}) => {
@@ -45,7 +46,7 @@ const QuestionsForm: React.FC<props> = ({}) => {
     addQuestion({ question: question }).then(data => {
       if (data.status === 201) {
         setQuestion("")
-        navigate(`/question/${data.data.id}`)
+        navigate(`${APP_CONST.URL.QUESTION}/${data.data.id}`)
       }
     })
   }

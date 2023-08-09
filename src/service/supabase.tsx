@@ -1,10 +1,8 @@
 import { createClient } from "@supabase/supabase-js"
+import { APP_CONST } from "../const/configurationsCont"
 import { questionType } from "../types/questionType"
 
-const supabaseUrl = "https://acxfaonngdzmkowxagly.supabase.co"
-
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabase = createClient(APP_CONST.SUPABASE.URL, APP_CONST.SUPABASE.key)
 
 export const getAsk = async (): Promise<questionType[]> => {
   return await supabase
