@@ -1,24 +1,19 @@
-import { ArrowBackIcon } from "@chakra-ui/icons"
-import {
-  Button,
-  Center,
-  Link,
-  Spinner,
-  Stack,
-  Text,
-  useToast,
-} from "@chakra-ui/react"
+import { Button, Center, Spinner, Stack, useToast } from "@chakra-ui/react"
+
 import React, { useEffect, useState } from "react"
-import { Link as ReactRouterLink, useParams } from "react-router-dom"
+import { Helmet } from "react-helmet"
+import { useParams } from "react-router-dom"
 import Questions from "../components/questions"
 import { useQuestion } from "../hooks/useQuestion"
 import Layout from "../layout/layout"
+
 type props = {}
 const QuestionPage: React.FC<props> = ({}) => {
   const { id } = useParams()
   const toast = useToast()
   const [loading, setLoading] = useState<boolean>(false)
   const { question, getQuestionsById } = useQuestion()
+
   useEffect(() => {
     setLoading(true)
     id &&
@@ -26,6 +21,7 @@ const QuestionPage: React.FC<props> = ({}) => {
         setLoading(false)
       })
   }, [])
+
   const copyUrl = () => {
     const url = window.location.href
     navigator.clipboard.writeText(url)
@@ -40,15 +36,10 @@ const QuestionPage: React.FC<props> = ({}) => {
   }
   return (
     <Layout>
+      <Helmet>
+        <title>Ask - Question</title>
+      </Helmet>
       <Stack direction={"column"} p={4} spacing={2}>
-        <Link as={ReactRouterLink} to="/">
-          <Text>
-            <ArrowBackIcon />
-            <Text ml={2} as="span">
-              Go back
-            </Text>
-          </Text>
-        </Link>
         {loading ? (
           <Center>
             <Spinner size={"xl"} color="teal" />
@@ -56,7 +47,13 @@ const QuestionPage: React.FC<props> = ({}) => {
         ) : (
           <>
             <Questions question={question.question} />
-            <Button colorScheme="teal" w={"full"} onClick={copyUrl}>
+            <Button
+              bg={"teal"}
+              color={"white"}
+              _hover={{ bg: "teal.500" }}
+              w={"full"}
+              onClick={copyUrl}
+            >
               Copy URL
             </Button>
           </>

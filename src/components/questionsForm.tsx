@@ -14,7 +14,7 @@ const QuestionsForm: React.FC<props> = ({}) => {
     if (question === "") {
       setQuestion("")
       return toast({
-        title: "add question",
+        title: "error question",
         description: "Your question can't be empty",
         status: "error",
         duration: 1000,
@@ -24,7 +24,7 @@ const QuestionsForm: React.FC<props> = ({}) => {
     if (question.length < 8) {
       setQuestion("")
       return toast({
-        title: "add question",
+        title: "error question",
         description: "Your question can't be less than 8 characters",
         status: "error",
         duration: 1000,
@@ -34,7 +34,7 @@ const QuestionsForm: React.FC<props> = ({}) => {
     if (question.length > 150) {
       setQuestion("")
       return toast({
-        title: "add question",
+        title: "error question",
         description: "Your question can't be more than 150 characters",
         status: "error",
         duration: 1000,
@@ -71,12 +71,19 @@ const QuestionsForm: React.FC<props> = ({}) => {
             borderTopRightRadius={0}
             value={question}
             maxLength={150}
+            _placeholder={{ color: "#888" }}
             placeholder="¿What is your question?"
             onChange={e => setQuestion(e.target.value)}
           />
         </Stack>
 
-        <Button w={"full"} colorScheme="teal" type="submit">
+        <Button
+          w={"full"}
+          bg={"teal"}
+          color={"white"}
+          _hover={{ bg: "teal.500" }}
+          type="submit"
+        >
           Send
         </Button>
       </Stack>

@@ -1,5 +1,6 @@
 import { Center, Divider, Spinner, Stack } from "@chakra-ui/react"
 import React, { useEffect, useState } from "react"
+import { Helmet } from "react-helmet"
 import ListQuestions from "../components/listQuestions"
 import QuestionsForm from "../components/questionsForm"
 import { useQuestion } from "../hooks/useQuestion"
@@ -20,6 +21,9 @@ const HomePage: React.FC<props> = ({}) => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Ask</title>
+      </Helmet>
       <Stack direction={"column"} p={4} spacing={4}>
         <QuestionsForm />
         <Divider borderColor={"teal"} opacity={"0.2"} />
