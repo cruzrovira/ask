@@ -19,7 +19,7 @@ export const useQuestion = () => {
 
   const getQuestionsById = ({ id }: { id: number }) => {
     return getAskById({ id }).then(data => {
-      setQuestion(() => data.data)
+      data.data && setQuestion(() => data.data)
       return data
     })
   }

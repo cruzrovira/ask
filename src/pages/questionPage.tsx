@@ -2,7 +2,7 @@ import { Button, Center, Spinner, Stack, useToast } from "@chakra-ui/react"
 import html2canvas from "html2canvas"
 import React, { useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
-import { redirect, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Questions from "../components/questions"
 import { APP_CONST } from "../const/configurationsCont"
 import { useQuestion } from "../hooks/useQuestion"
@@ -10,13 +10,10 @@ import Layout from "../layout/layout"
 type props = {}
 const QuestionPage: React.FC<props> = ({}) => {
   const { id } = useParams()
-
-  // if (!id) {
-  //   redirect(APP_CONST.URL.NOT_FOUND)
-  // }
-  // if (id && !isNaN(parseInt(id))) {
-  //   redirect(APP_CONST.URL.NOT_FOUND)
-  // }
+  const history = useNavigate()
+  if (!id || isNaN(parseInt(id))) {
+    history(APP_CONST.URL.NOT_FOUND)
+  }
 
   const toast = useToast()
   const [loading, setLoading] = useState<boolean>(false)
@@ -28,8 +25,8 @@ const QuestionPage: React.FC<props> = ({}) => {
     id &&
       getQuestionsById({ id: parseInt(id) }).then(data => {
         if (data.status !== 200) {
-          redirect(APP_CONST.URL.NOT_FOUND)
-          return
+          history(APP_CONST.URL.NOT_FOUND)
+          return null
         }
         setLoading(false)
       })
