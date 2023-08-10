@@ -1,11 +1,14 @@
-import { GridItem, Heading, Stack, Text } from "@chakra-ui/react"
-import React from "react"
+import { GridItem, Heading, Stack, Text, forwardRef } from "@chakra-ui/react"
+import { ForwardRefRenderFunction } from "react"
 type props = {
   question: string
 }
-const Questions: React.FC<props> = ({ question }) => {
+const Questions: ForwardRefRenderFunction<HTMLDivElement, props> = (
+  { question },
+  ref,
+) => {
   return (
-    <GridItem>
+    <GridItem ref={ref}>
       <Stack spacing={0} direction={"column"}>
         <Heading
           as="p"
@@ -33,4 +36,4 @@ const Questions: React.FC<props> = ({ question }) => {
   )
 }
 
-export default Questions
+export default forwardRef(Questions)

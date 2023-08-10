@@ -12,13 +12,22 @@ export const getAsk = async (): Promise<questionType[]> => {
     .then(({ data }) => data as questionType[])
 }
 
+type getQuestionsById = {
+  data: questionType
+  status: number
+}
 export const getAskById = async ({
   id,
 }: {
   id: Number
-}): Promise<questionType> => {
-  let { data } = await supabase.from("ask").select("*").eq("id", id).single()
-  return data as questionType
+}): Promise<getQuestionsById> => {
+  let { data, status } = await supabase
+    .from("ask")
+    .select("*")
+    .eq("id", id)
+    .single()
+
+  return { data: data as questionType, status: status }
 }
 
 export const setAsk = async ({ question }: { question: string }) => {
