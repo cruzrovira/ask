@@ -13,7 +13,14 @@ const Menu: React.FC<props> = ({}) => {
     toggleColorMode()
   }
   return (
-    <Box bg={"teal"} py={2} px={4} display={"flex"} justifyContent={"center"}>
+    <Box
+      bg={"teal"}
+      py={2}
+      px={4}
+      display={"flex"}
+      justifyContent={"center"}
+      borderTopRadius={{ base: "", md: "md" }}
+    >
       {location.pathname !== "/" && (
         <Link
           as={ReactRouterLink}
