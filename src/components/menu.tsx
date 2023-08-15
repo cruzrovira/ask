@@ -2,6 +2,7 @@ import { ArrowBackIcon, MoonIcon, SunIcon } from "@chakra-ui/icons"
 import { Box, Link, Text, useColorMode } from "@chakra-ui/react"
 import React from "react"
 import { Link as ReactRouterLink, useLocation } from "react-router-dom"
+import { APP_CONST } from "../const/configurationsCont"
 type props = {}
 const Menu: React.FC<props> = ({}) => {
   const location = useLocation()
@@ -21,7 +22,7 @@ const Menu: React.FC<props> = ({}) => {
       justifyContent={"center"}
       borderTopRadius={{ base: "", md: "md" }}
     >
-      {location.pathname !== "/" && (
+      {location.pathname !== APP_CONST.URL.HOME && (
         <Link
           as={ReactRouterLink}
           to="/"
@@ -36,6 +37,7 @@ const Menu: React.FC<props> = ({}) => {
           </Text>
         </Link>
       )}
+
       <Link onClick={handleColorMode} marginLeft={"auto"} position={"relative"}>
         {colorMode === "light" ? (
           <MoonIcon color={"white"} />
