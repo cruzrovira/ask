@@ -1,7 +1,7 @@
+import { getAsk, getAskById, setAsk } from "@/service/supabase"
+import { questionType } from "@/types/questionType"
 import { useContext } from "react"
 import { questionContext } from "../context/questionContext"
-import { getAsk, getAskById, setAsk } from "../service/supabase"
-import { questionType } from "../types/questionType"
 
 export const useQuestion = () => {
   const context = useContext(questionContext)

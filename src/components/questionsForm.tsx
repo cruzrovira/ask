@@ -1,8 +1,8 @@
+import { APP_CONST } from "@/const/configurationsCont"
+import { useQuestion } from "@/hooks/useQuestion"
 import { Button, Heading, Input, Stack, useToast } from "@chakra-ui/react"
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { APP_CONST } from "../const/configurationsCont"
-import { useQuestion } from "../hooks/useQuestion"
 type props = {}
 const QuestionsForm: React.FC<props> = ({}) => {
   const navigate = useNavigate()

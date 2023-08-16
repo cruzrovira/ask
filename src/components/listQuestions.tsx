@@ -1,8 +1,8 @@
+import Questions from "@/components/questions"
+import { questionType } from "@/types/questionType"
 import { Grid, Link } from "@chakra-ui/react"
 import React from "react"
 import { Link as ReactRouterLink } from "react-router-dom"
-import { questionType } from "../types/questionType"
-import Questions from "./questions"
 
 type props = {
   questions: questionType[]

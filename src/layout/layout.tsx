@@ -1,6 +1,6 @@
+import Menu from "@/components/menu"
 import { Box, useColorModeValue } from "@chakra-ui/react"
 import React from "react"
-import Menu from "../components/menu"
 type props = {
   children: React.ReactNode
 }

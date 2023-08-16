@@ -1,6 +1,6 @@
+import { APP_CONST } from "@/const/configurationsCont"
+import { questionType } from "@/types/questionType"
 import { createClient } from "@supabase/supabase-js"
-import { APP_CONST } from "../const/configurationsCont"
-import { questionType } from "../types/questionType"
 
 const supabase = createClient(APP_CONST.SUPABASE.URL, APP_CONST.SUPABASE.key)
 

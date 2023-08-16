@@ -1,8 +1,8 @@
+import { APP_CONST } from "@/const/configurationsCont"
 import { ArrowBackIcon, MoonIcon, SunIcon } from "@chakra-ui/icons"
 import { Box, Link, Text, useColorMode } from "@chakra-ui/react"
 import React from "react"
 import { Link as ReactRouterLink, useLocation } from "react-router-dom"
-import { APP_CONST } from "../const/configurationsCont"
 type props = {}
 const Menu: React.FC<props> = ({}) => {
   const location = useLocation()

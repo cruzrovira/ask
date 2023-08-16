@@ -1,5 +1,5 @@
+import { questionType } from "@/types/questionType"
 import React, { createContext, useState } from "react"
-import { questionType } from "../types/questionType"
 
 export const questionContext = createContext<{
   question: questionType

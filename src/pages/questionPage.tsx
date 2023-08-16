@@ -1,12 +1,12 @@
+import Questions from "@/components/questions"
+import { APP_CONST } from "@/const/configurationsCont"
+import { useQuestion } from "@/hooks/useQuestion"
+import Layout from "@/layout/layout"
 import { Button, Center, Spinner, Stack, useToast } from "@chakra-ui/react"
 import html2canvas from "html2canvas"
 import React, { useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
 import { useNavigate, useParams } from "react-router-dom"
-import Questions from "../components/questions"
-import { APP_CONST } from "../const/configurationsCont"
-import { useQuestion } from "../hooks/useQuestion"
-import Layout from "../layout/layout"
 type props = {}
 const QuestionPage: React.FC<props> = ({}) => {
   const { id } = useParams()

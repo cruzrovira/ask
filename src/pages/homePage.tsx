@@ -1,10 +1,10 @@
+import ListQuestions from "@/components/listQuestions"
+import QuestionsForm from "@/components/questionsForm"
+import { useQuestion } from "@/hooks/useQuestion"
+import Layout from "@/layout/layout"
 import { Center, Divider, Spinner, Stack } from "@chakra-ui/react"
 import React, { useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
-import ListQuestions from "../components/listQuestions"
-import QuestionsForm from "../components/questionsForm"
-import { useQuestion } from "../hooks/useQuestion"
-import Layout from "../layout/layout"
 
 type props = {}
 

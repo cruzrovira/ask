@@ -1,7 +1,7 @@
+import Layout from "@/layout/layout"
 import { Stack, Text, useColorModeValue } from "@chakra-ui/react"
 import React from "react"
 import { Helmet } from "react-helmet"
-import Layout from "../layout/layout"
 type props = {}
 const NoMatchPage: React.FC<props> = ({}) => {
   const color = useColorModeValue("gray.700", "white")
