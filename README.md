@@ -1,41 +1,43 @@
-# Aplicación de preguntas anónimas
+# Reading List
 
-Este proyecto tiene 4 milestones o entregas, no es necesario que cumplas todas para dar el proyecto por terminado, ajustalo a tus necesidades y conocimientos. Cada entrega se vuelve un poco más difícil.
+¡Bienvenido al proyecto ASK desarrollado con React y Chakra-UI! , Este proyecto es parte del reto de [interview-challenges](https://github.com/goncy/interview-challenges/tree/main/proyectos-take-home/preguntas-anonimas) propuesto por [@goncy](https://github.com/goncy). A continuación, encontrarás información sobre el proyecto, cómo configurarlo y dónde puedes ver el demo en línea.
 
-Intentá que cada entrega tenga calidad de producto final, antes de continuar a la próxima entrega, refactorizá tu código, comentalo o lo que consideres que sea correcto previo a entregarlo a un cliente.
+## Descripción del Proyecto
 
-## Entrega 1
+El objetivo de este proyecto es crear una aplicación web de preguntas anónimas utilizando React . La aplicación tiene como finalidad ofrecer a nuestro público una forma de realizar preguntas de manera anónima y compartir una imagen de dicha pregunta en las redes sociales.
 
-Nuestro equipo de diseño nos dijo que quería una aplicación con una interfáz similar a [NGL](https://ngl.link/) y nos dió como referencia la imágen de arriba. A diferencia de NGL, esta es una aplicación de preguntas anónimas donde todas las preguntas llegan al muro principal, no hay un administrador que las contesta, modera o elimina, sino que cualquier persona puede copiar esa pregunta y responderla en sus propias redes.
+## Características del Proyecto
 
-El cliente nos dió esta aplicación con Next.js + App router y Tailwind CSS configurado, pero nos dijo que podemos usar las tecnologías que queramos para el proyecto. Los requerimientos son:
+- Interfaz de usuario amigable y atractiva para gestionar preguntas.
+- Uso de componentes funcionales de React para una arquitectura limpia y mantenible.
+- Aplicación responsive que se adapta a diferentes tamaños de pantalla, facilitando su uso en dispositivos móviles.
 
-- Debe haber un formulario en la parte superior para que los usuarios envien preguntas
-- Las preguntas nuevas deberían persistir al refrescar la página
-- Deberíamos ver las preguntas de otros usuarios además de las nuestras
+## Cómo Configurar el Proyecto
 
-## Entrega 2
+Si deseas probar el proyecto de forma local en tu máquina, sigue estos pasos:
 
-Sumado a lo presentado en la entrega 1:
+1. Clona el repositorio desde GitHub:
 
-- Deberíamos tener una ruta para cada pregunta que nos muestre solo su contenido y un botón para volver al inicio
-- Al compartir esta ruta en redes sociales, deberiamos mostrar una imágen de open-graph que incluya el texto de la pregunta
-- Deberíamos tener un botón en la ruta de cada pregunta que nos permita copiar una imágen de la pregunta al portapapeles
+```
+git clone <URL_DEL_REPOSITORIO>
+```
 
-## Entrega 3
+2. Instala las dependencias necesarias utilizando npm o yarn:
 
-Sumado a lo presentado en la entrega 2:
+```
+cd ask
+npm install
+```
 
-- Deberíamos tener una ruta `/admin` a la cual podemos acceder y nos permita borrar preguntas
-- Al estar en la ruta `/admin` y clickear una pregunta podemos contestarla y aparecerá la respuesta debajo de la pregunta
+3. Inicia el servidor de desarrollo:
 
-## Entrega 4
+```
+cd ask
+npm run dev
+```
 
-Sumado a lo presentado en la entrega 3:
+Esto abrirá la aplicación en tu navegador predeterminado. Ahora podrás ver y probar la aplicación en tu entorno local.
 
-- Podemos acceder a diferentes "canales" y cada canal tiene sus propias preguntas. Por ej: entrar a `/politica` tiene unas preguntas y `/mascotas` tiene sus propias preguntas
-- Cada canal tiene su propia ruta de administración `/politica/admin` y `/mascotas/admin`
+## Demo en Línea
 
----
-
-Podés clonarlo o usarlo directamentes desde [CodeSandbox](https://codesandbox.io/s/github/goncy/interview-challenges/tree/main/proyectos-take-home/preguntas-anonimas). Una vez que termines alguna de las entregas, compartilo en el canal #feedback del [Discord](https://discord.goncy.dev) para obtener feedback y etiquetame en [Twitter](https://twitter.gonzalopozzo.com) y [LinkedIn](https://linkedin.gonzalopozzo.com) cuando lo compartas así lo re-comparto y obtiene más visibilidad.
+También puedes acceder al demo en línea del proyecto "Ask" a través de la siguiente dirección web: [Demo del Proyecto]()
